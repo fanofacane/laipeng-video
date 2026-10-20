@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Claude Code 视频</title>
+<link rel="stylesheet" href="../assets/fonts/noto-sans-sc-400.css">
+<link rel="stylesheet" href="../assets/fonts/noto-sans-sc-500.css">
+<link rel="stylesheet" href="../assets/fonts/noto-sans-sc-700.css">
+<link rel="stylesheet" href="../assets/fonts/noto-sans-sc-900.css">
+<link rel="stylesheet" href="../assets/fonts/inter-500.css">
+<link rel="stylesheet" href="../assets/fonts/inter-700.css">
+<link rel="stylesheet" href="../assets/fonts/inter-900.css">
+<link rel="stylesheet" href="../assets/fonts/jetbrains-mono-400.css">
+<link rel="stylesheet" href="../assets/fonts/jetbrains-mono-500.css">
+<link rel="stylesheet" href="../assets/fonts/jetbrains-mono-700.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="bg" width="1920" height="1080"></canvas>
+  <div id="scenes"></div>
+  <div id="hud">
+    <div class="brand"><span class="dot"></span>AI WORKFLOW<span class="sep">/</span><span class="mono">CLAUDE CODE</span></div>
+    <div class="chapter"><span class="mono" id="chno">CH.01</span><span id="chname">认知差距</span></div>
+    <div class="progress"><i id="prog"></i></div>
+  </div>
+  <div id="sub"><span id="subtext"></span></div>
+</div>
+<script src="timing.js"></script>
+<script src="engine.js"></script>
+<script src="scenes.js"></script>
+<script>
+  if (!location.search.includes('play')) ENGINE.init().then(() => { window.READY = true; });
+</script>
+</body>
+</html>
