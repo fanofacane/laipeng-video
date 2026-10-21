@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>啊 · Type in Motion</title>
+<link rel="stylesheet" href="../../assets/fonts/noto-sans-sc-900.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:720px;height:720px;overflow:hidden;background:#000}
+  #stage{position:relative;width:720px;height:720px;overflow:hidden;background:#000}
+  #foot{position:absolute;left:0;top:0;width:720px;height:720px;transform-origin:50% 50%}
+  #yel{position:absolute;inset:0;background:#EFFF0C;display:none}
+  .abs{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
+  .abs > canvas, .abs > svg{display:block}
+  .label{background:#0B0820;padding:5px}
+  .pill{width:128px;height:26px;border-radius:7px;background:#0B0820;display:flex;align-items:center;justify-content:center;gap:4px}
+  .mask{position:absolute;left:0;top:0;width:720px;height:720px}
+</style>
+</head>
+<body>
+<div id="stage">
+  <img id="foot" src="../footage/frames/0001.jpg">
+  <div id="yel"></div>
+  <div id="fx" class="abs" style="width:720px;height:720px"></div>
+  <div id="hud" class="abs" style="width:720px;height:720px"></div>
+</div>
+<script src="motion.js"></script>
+</body>
+</html>

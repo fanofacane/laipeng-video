@@ -1,3 +1,7 @@
 out/chunks/
 node_modules/
 __pycache__/
+aaa/out/chunks/
+aaa/footage/frames/
+aaa/out/video_only.mp4
+aaa/out/score_raw.wav
