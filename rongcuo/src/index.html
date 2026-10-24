@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>人生的容错率</title>
+<style>
+  html, body { margin: 0; background: #000; overflow: hidden; }
+  #out { display: block; width: 1080px; height: 1920px; }
+  body.fit #out { width: auto; height: 100vh; margin: 0 auto; }
+</style>
+</head>
+<body>
+<canvas id="out" width="1080" height="1920"></canvas>
+<script src="timing.js"></script>
+<script src="engine.js"></script>
+<script src="scenes.js"></script>
+<script>
+  ENGINE.init().then(() => {
+    window.READY = true;
+    if (location.search.includes('play')) {
+      // 预览：点击播放/暂停，配音同步
+      document.body.classList.add('fit');
+      const au = new Audio('../audio/mix.wav'); let t0 = null, off = 0;
+      document.body.onclick = () => { if (t0 == null) { t0 = performance.now() - off * 1000; au.currentTime = off; au.play(); } else { off = (performance.now() - t0) / 1000; t0 = null; au.pause(); } };
+      (function loop() { if (t0 != null) ENGINE.seek(Math.min(ENGINE.duration, (performance.now() - t0) / 1000)); requestAnimationFrame(loop); })();
+    }
+  }).catch(e => { console.error(e); throw e; });
+</script>
+</body>
+</html>
